@@ -1,7 +1,10 @@
 # Plan-Bidud-Hotel
 
-Java project in Design & Implementation academic course. I used Model–View–Controller design pattern. For UI I used JavaFX with SceneBuilder. As a database I used MS Access. In order to connect I used UcanAccess.jar.
-Use Case Diagram:
+Java project in Design & Implementation academic course consists of 2 sub-projects. 
+"PlanBidudHotel" is a system that manages the preparations of the hotels for the arrival of the isolated citizens.
+"OperateBidudHotel" is a system that manages the daily operations of the hotels where isolating citizens who have returned from abroad are staying.
+The structure of the projects implemented on principles of the Model–View–Controller design pattern. Entity package contains all the data logic of the backend, such as database and connection establishment using UcanAccess.jar. View package is a frontend implemented in JavaFX with SceneBuilder, and controller package contains all the logic of the application that supports almost all of the use cases in the Use Case Diagram:
+
 ![UseCase](https://user-images.githubusercontent.com/88053482/155334195-a6baec81-a3ff-4ca3-ade0-a9d23aeb383a.JPG)
 
 Implementation:
