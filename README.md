@@ -4,8 +4,11 @@ Java project in Design & Implementation academic course consists of 2 sub-projec
 "PlanBidudHotel" is a system that manages the preparations of the hotels for the arrival of the isolated citizens.
 "OperateBidudHotel" is a system that manages the daily operations of the hotels where isolating citizens who have returned from abroad are staying.
 The structure of the projects implemented on principles of the Model–View–Controller design pattern. Entity package contains all the data logic of the backend, such as database and connection establishment using UcanAccess.jar. View package is a frontend implemented in JavaFX with SceneBuilder, and controller package contains all the logic of the application that supports almost all of the use cases in the Use Case Diagram:
-
+<img src="https:///user-images.githubusercontent.com/88053482/155334195-a6baec81-a3ff-4ca3-ade0-a9d23aeb383a.JPGe" width="500" height="500">
 ![UseCase](https://user-images.githubusercontent.com/88053482/155334195-a6baec81-a3ff-4ca3-ade0-a9d23aeb383a.JPG)
+
+ms-access database (PBH):
+![pbh-access](https://user-images.githubusercontent.com/88053482/155498785-199c7469-e358-40cd-bfc9-b8b947fbf111.JPG)
 
 Implementation:
 
