@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.16.0.final using JasperReports Library version 6.16.0-48579d909b7943b64690c65c71e07e0b80981928  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Hotels" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="cd5997b5-b91c-41e3-be70-58f67e9f4f85">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="UCA"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT TblHotel.HotelName, TblCity.Name AS City, Count(TblRoom.RoomNo) AS OccupiedRooms, TblHotel.TotalRooms, [TotalRooms]-Count([RoomNo]) AS VacantRooms
+FROM (TblCity INNER JOIN TblHotel ON TblCity.ID = TblHotel.CityID) INNER JOIN TblRoom ON TblHotel.HotelID = TblRoom.HotelID
+WHERE (((TblRoom.Status)="Occupied" Or (TblRoom.Status)="Reserved"))
+GROUP BY TblHotel.HotelName, TblCity.Name, TblHotel.TotalRooms]]>
+	</queryString>
+	<field name="HOTELNAME" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="HOTELNAME"/>
+		<property name="com.jaspersoft.studio.field.label" value="HOTELNAME"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="SYSTEM_SUBQUERY"/>
+	</field>
+	<field name="City" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="Name"/>
+		<property name="com.jaspersoft.studio.field.label" value="City"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="SYSTEM_SUBQUERY"/>
+	</field>
+	<field name="OccupiedRooms" class="java.lang.Long">
+		<property name="com.jaspersoft.studio.field.name" value="OCCUPIEDROOMS"/>
+		<property name="com.jaspersoft.studio.field.label" value="OccupiedRooms"/>
+	</field>
+	<field name="TOTALROOMS" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="TOTALROOMS"/>
+		<property name="com.jaspersoft.studio.field.label" value="TOTALROOMS"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="SYSTEM_SUBQUERY"/>
+	</field>
+	<field name="VacantRooms" class="java.lang.Long">
+		<property name="com.jaspersoft.studio.field.name" value="VACANTROOMS"/>
+		<property name="com.jaspersoft.studio.field.label" value="VacantRooms"/>
+	</field>
+	<variable name="VacantRooms1" class="java.lang.Long" resetType="Group" resetGroup="City" calculation="Sum">
+		<variableExpression><![CDATA[$F{VacantRooms}]]></variableExpression>
+	</variable>
+	<variable name="VacantRooms2" class="java.lang.Long" calculation="Sum">
+		<variableExpression><![CDATA[$F{VacantRooms}]]></variableExpression>
+	</variable>
+	<variable name="OccupiedRooms1" class="java.lang.Long" resetType="Group" resetGroup="City" calculation="Sum">
+		<variableExpression><![CDATA[$F{OccupiedRooms}]]></variableExpression>
+	</variable>
+	<variable name="OccupiedRooms2" class="java.lang.Long" calculation="Sum">
+		<variableExpression><![CDATA[$F{OccupiedRooms}]]></variableExpression>
+	</variable>
+	<group name="City">
+		<groupExpression><![CDATA[$F{City}]]></groupExpression>
+		<groupHeader>
+			<band height="55">
+				<textField>
+					<reportElement x="80" y="0" width="430" height="30" backcolor="#DEDEDE" uuid="77383b09-57fb-46c9-bc4c-f5165857742f"/>
+					<box leftPadding="0">
+						<pen lineWidth="0.0"/>
+						<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+						<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+						<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+						<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					</box>
+					<textElement>
+						<font size="14" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{City}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="79">
+				<staticText>
+					<reportElement x="80" y="0" width="90" height="33" uuid="2e6b4844-10ca-4edc-a7e7-199fffd92086">
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					</reportElement>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="14" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Total by city:]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="460" y="1" width="50" height="30" uuid="079e78bb-e8ff-41bd-9fd8-53e6aa9ef713"/>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{VacantRooms1}]]></textFieldExpression>
+				</textField>
+				<line>
+					<reportElement x="85" y="60" width="425" height="1" uuid="a37b7511-f211-4514-8e37-c9d4c7000a1a"/>
+				</line>
+				<textField>
+					<reportElement x="270" y="0" width="50" height="30" uuid="ec2e60ea-0351-4703-97ba-873a5a5cf8a3"/>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{OccupiedRooms1}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="10" y="9" width="220" height="49" uuid="cd651ff9-4b61-45fb-99a5-30ee96b6df63">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box>
+					<pen lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="17" isBold="true" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[Hotel Status Report]]></text>
+			</staticText>
+			<textField pattern="MMMMM dd, yyyy">
+				<reportElement x="430" y="24" width="120" height="30" uuid="f678a8f7-9403-43d4-9a76-79988ac37077"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="40" y="70" width="510" height="1" uuid="aa56b1c8-5ee8-424f-8b5c-b0e77a11b93a"/>
+			</line>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch">
+			<staticText>
+				<reportElement x="80" y="0" width="100" height="30" uuid="2623fe0f-0506-4349-ae89-3da8d1d4360d">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="8fb2f507-78a1-42f3-8a18-bc9f6d9c65c4"/>
+				</reportElement>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[Hotel Name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="220" y="0" width="130" height="30" uuid="a40d9459-68c6-4485-b49b-ceb0cb23aac5">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="a918d606-816d-4c84-814b-0391fc8489eb"/>
+				</reportElement>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[Occupied Rooms]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="410" y="0" width="100" height="30" uuid="0965bbde-3c17-44f5-8ec8-99d8edc174c9">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="a5e189df-cd32-48a1-8d5c-375307dece37"/>
+				</reportElement>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[Vacant Rooms]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="51" splitType="Stretch">
+			<textField>
+				<reportElement x="80" y="0" width="100" height="30" uuid="2e22949a-5545-465b-b03b-a7ea08becda9">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="8fb2f507-78a1-42f3-8a18-bc9f6d9c65c4"/>
+				</reportElement>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{HOTELNAME}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="270" y="0" width="60" height="30" uuid="1accbec2-7266-4519-b9a6-87ceef853173">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="a918d606-816d-4c84-814b-0391fc8489eb"/>
+				</reportElement>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{OccupiedRooms}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="460" y="0" width="50" height="30" uuid="1fb72884-2ab2-44e0-ba70-f7968927a089">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="a5e189df-cd32-48a1-8d5c-375307dece37"/>
+				</reportElement>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{VacantRooms}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="30" splitType="Stretch">
+			<textField>
+				<reportElement x="460" y="5" width="50" height="25" uuid="caf536fd-6b79-4c2a-8783-89ee6cd22214"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{VacantRooms2}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="270" y="5" width="40" height="20" uuid="37ba9906-7205-422b-821b-1cc54d6a611b"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{OccupiedRooms2}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="80" y="-3" width="40" height="33" uuid="2faab380-19de-4eba-9ba9-52658b7c5348">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total:]]></text>
+			</staticText>
+		</band>
+	</summary>
+</jasperReport>

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<CovidTest_info exportDate="2022-02-23T11:53:37.034376400">
+  <TakingTest ID="21321351">
+    <testNum>94</testNum>
+    <nurseID>111222333</nurseID>
+    <guestID>21321351</guestID>
+    <testResult>positive</testResult>
+  </TakingTest>
+  <TakingTest ID="23652478">
+    <testNum>95</testNum>
+    <nurseID>111222333</nurseID>
+    <guestID>23652478</guestID>
+    <testResult>negative</testResult>
+  </TakingTest>
+  <TakingTest ID="25478965">
+    <testNum>96</testNum>
+    <nurseID>111222333</nurseID>
+    <guestID>25478965</guestID>
+    <testResult>pending</testResult>
+  </TakingTest>
+  <TakingTest ID="234569875">
+    <testNum>97</testNum>
+    <nurseID>111222333</nurseID>
+    <guestID>234569875</guestID>
+    <testResult>positive</testResult>
+  </TakingTest>
+  <TakingTest ID="243973542">
+    <testNum>98</testNum>
+    <nurseID>123456789</nurseID>
+    <guestID>243973542</guestID>
+    <testResult>negative</testResult>
+  </TakingTest>
+  <TakingTest ID="245687542">
+    <testNum>99</testNum>
+    <nurseID>123456789</nurseID>
+    <guestID>245687542</guestID>
+    <testResult>pending</testResult>
+  </TakingTest>
+  <TakingTest ID="342123654">
+    <testNum>99</testNum>
+    <nurseID>365214521</nurseID>
+    <guestID>342123654</guestID>
+    <testResult>positive</testResult>
+  </TakingTest>
+  <TakingTest ID="342123654">
+    <testNum>126</testNum>
+    <nurseID>365214521</nurseID>
+    <guestID>342123654</guestID>
+    <testResult>pending</testResult>
+  </TakingTest>
+  <TakingTest ID="325896542">
+    <testNum>127</testNum>
+    <nurseID>365214521</nurseID>
+    <guestID>325896542</guestID>
+    <testResult>pending</testResult>
+  </TakingTest>
+  <TakingTest ID="111">
+    <testNum>132</testNum>
+    <nurseID>365214521</nurseID>
+    <guestID>111</guestID>
+    <testResult>positive</testResult>
+  </TakingTest>
+  <TakingTest ID="568542574">
+    <testNum>136</testNum>
+    <nurseID>123456789</nurseID>
+    <guestID>568542574</guestID>
+    <testResult>pending</testResult>
+  </TakingTest>
+  <TakingTest ID="568542574">
+    <testNum>158</testNum>
+    <nurseID>123456789</nurseID>
+    <guestID>568542574</guestID>
+    <testResult>pending</testResult>
+  </TakingTest>
+</CovidTest_info>
